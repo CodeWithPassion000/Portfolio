@@ -3,8 +3,14 @@ import Image from 'next/image';
 import { FaGithub, FaLinkedin, FaYoutube } from 'react-icons/fa';
 import { GoLocation } from 'react-icons/go';
 import { GiTie } from 'react-icons/gi';
-
+import { useTheme } from 'next-themes';
 function Sidebar() {
+  // const { theme, setTheme } = useTheme();
+
+  const changeTheme = () => {
+    // setTheme(theme == 'light' ? 'dark' : 'light');
+  };
+
   return (
     <div>
       {/* <Image
@@ -64,7 +70,10 @@ function Sidebar() {
       >
         Email Me
       </button>
-      <button className="bg-gradient-to-r from-green-400 to-blue-400 w-8/12 rounded-full py-2 px-5 text-white my-2">
+      <button
+        // onClick={changeTheme}
+        className="bg-gradient-to-r from-green-400 to-blue-400 w-8/12 rounded-full py-2 px-5 text-white my-2"
+      >
         Toggle Theme
       </button>
     </div>
