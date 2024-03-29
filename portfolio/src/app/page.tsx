@@ -4,10 +4,16 @@ import { GetServerSideProps } from 'next';
 import { services } from '../../data/data';
 import ServiceCard from '@/components/ServiceCard';
 import { motion } from 'framer-motion';
-import { fadInUp, stagger } from '../../animation';
+import { fadInUp, routeAnimation, stagger } from '../../animation';
 export default function Home() {
   return (
-    <div className="flex flex-col flex-grow px-6 pt-1 ">
+    <motion.div
+      variants={routeAnimation}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      className="flex flex-col flex-grow px-6 pt-1 "
+    >
       <h6 className="my-3 text-base font-medium">
         I am currently pursuing B.Tech Degree(Final Year) in Computer Science
         Engineering from Academy of Technology. I have 3+ years of experience in
@@ -38,6 +44,6 @@ export default function Home() {
           ))}
         </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 }

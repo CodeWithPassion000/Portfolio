@@ -4,11 +4,17 @@ import { languages } from '../../../data/data';
 import { tools } from '../../../data/data';
 import Bar from '@/components/Bar';
 import { motion } from 'framer-motion';
-import { fadInUp } from '../../../animation';
+import { fadInUp, routeAnimation } from '../../../animation';
 
 function page() {
   return (
-    <div className="px-6 py-2">
+    <motion.div
+      variants={routeAnimation}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      className="px-6 py-2"
+    >
       {/* //! Education & Experience */}
       <div className="grid gap-6 grid-cols-2 xs:grid-cols-1">
         <motion.div variants={fadInUp} initial="initial" animate="animate">
@@ -54,7 +60,7 @@ function page() {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

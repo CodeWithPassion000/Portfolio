@@ -6,7 +6,7 @@ import ProjectCard from '@/components/ProjectCard';
 import ProjectNavbar from '@/components/ProjectNavbar';
 import { Category } from '../../../data/types';
 import { motion } from 'framer-motion';
-import { fadInUp, stagger } from '../../../animation';
+import { fadInUp, routeAnimation, stagger } from '../../../animation';
 
 function page() {
   const [projects, setProjects] = useState(projectData);
@@ -26,7 +26,14 @@ function page() {
   };
 
   return (
-    <div className="px-5 py-2 overflow-y-scroll" style={{ height: '65vh' }}>
+    <motion.div
+      variants={routeAnimation}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      className="px-5 py-2 overflow-y-scroll"
+      style={{ height: '65vh' }}
+    >
       <ProjectNavbar
         handlelFilterCateogary={handlelFilterCateogary}
         active={active}
@@ -49,7 +56,7 @@ function page() {
           );
         })}
       </motion.div>
-    </div>
+    </motion.div>
   );
 }
 
