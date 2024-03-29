@@ -35,8 +35,8 @@ function Sidebar() {
       </p>
       <a
         className="px-2 py-1 my-3 bg-gray-200 rounded-full flex items-center justify-center"
-        href=""
-        download="name"
+        href="/ShivaKumarResume.pdf"
+        download="Shivaresume.pdf"
       >
         <GiTie className="w-6 h-6" />
         Download Resume

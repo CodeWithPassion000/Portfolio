@@ -11,6 +11,7 @@ import { fadInUp, routeAnimation, stagger } from '../../../animation';
 function page() {
   const [projects, setProjects] = useState(projectData);
   const [active, setActive] = useState('all');
+  const [showDetail, setShowDetail] = useState<number | null>(null);
 
   const handlelFilterCateogary = (category: Category | 'all') => {
     if (category == 'all') {
@@ -51,7 +52,11 @@ function page() {
               className="col-span-12 sm:col-span-6 lg:col-span-4 p-2 bg-gray-200 dark:bg-dark-200 rounded-lg"
               key={project.name}
             >
-              <ProjectCard project={project} />
+              <ProjectCard
+                project={project}
+                showDetail={showDetail}
+                setShowDetail={setShowDetail}
+              />
             </motion.div>
           );
         })}
