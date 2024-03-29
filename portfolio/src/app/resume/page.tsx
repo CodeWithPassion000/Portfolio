@@ -1,13 +1,17 @@
+'use client';
 import React from 'react';
 import { languages } from '../../../data/data';
 import { tools } from '../../../data/data';
 import Bar from '@/components/Bar';
+import { motion } from 'framer-motion';
+import { fadInUp } from '../../../animation';
+
 function page() {
   return (
     <div className="px-6 py-2">
       {/* //! Education & Experience */}
-      <div className="grid gap-6 grid-cols-2 sm:grid-cols-1">
-        <div>
+      <div className="grid gap-6 grid-cols-2 xs:grid-cols-1">
+        <motion.div variants={fadInUp} initial="initial" animate="animate">
           <h5 className="my-3 text-2xl font-bold">Education</h5>
           <div className="">
             <h5 className="my-2 text-xl font-bold">
@@ -19,15 +23,15 @@ function page() {
               from Academy of Technology
             </p>
           </div>
-        </div>
-        <div>
+        </motion.div>
+        <motion.div variants={fadInUp} initial="initial" animate="animate">
           <h5 className="my-3 text-2xl font-bold">Experience</h5>
           <div className="">
             <h5 className="my-2 text-xl font-bold">Software Developer Jr.</h5>
             <p className="font-semibold">Tata Consultancy Services</p>
             <p className="my-3">I don't know why I am doing this job</p>
           </div>
-        </div>
+        </motion.div>
       </div>
 
       {/*Languages & Tools */}

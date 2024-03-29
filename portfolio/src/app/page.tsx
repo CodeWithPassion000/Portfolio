@@ -1,7 +1,10 @@
+'use client';
+
 import { GetServerSideProps } from 'next';
 import { services } from '../../data/data';
 import ServiceCard from '@/components/ServiceCard';
-
+import { motion } from 'framer-motion';
+import { fadInUp, stagger } from '../../animation';
 export default function Home() {
   return (
     <div className="flex flex-col flex-grow px-6 pt-1 ">
@@ -18,16 +21,22 @@ export default function Home() {
         <h4 className="my-3 text-xl font-semibold tracking-wide">
           What I am doing
         </h4>
-        <div className="grid lg:grid-cols-2 gap-6">
+        <motion.div
+          className="grid lg:grid-cols-2 gap-6"
+          variants={stagger}
+          initial="initial"
+          animate="animate"
+        >
           {services.map((service) => (
-            <div
+            <motion.div
+              variants={fadInUp}
               className="col-span-2 p-2 bg-gray-200 rounded-lg dark:bg-dark-200 md:col-span-1 "
               key={service.title}
             >
               <ServiceCard service={service} />
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </div>
   );

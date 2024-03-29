@@ -5,6 +5,8 @@ import { projects as projectData } from '../../../data/data';
 import ProjectCard from '@/components/ProjectCard';
 import ProjectNavbar from '@/components/ProjectNavbar';
 import { Category } from '../../../data/types';
+import { motion } from 'framer-motion';
+import { fadInUp, stagger } from '../../../animation';
 
 function page() {
   const [projects, setProjects] = useState(projectData);
@@ -29,15 +31,24 @@ function page() {
         handlelFilterCateogary={handlelFilterCateogary}
         active={active}
       />
-      <div className="grid grid-cols-12 gap-4 my-3 relative">
+      <motion.div
+        variants={stagger}
+        initial="initial"
+        animate="animate"
+        className="grid grid-cols-12 gap-4 my-3 relative"
+      >
         {projects.map((project) => {
           return (
-            <div className="col-span-12 sm:col-span-6 lg:col-span-4 p-2 bg-gray-200 dark:bg-dark-200 rounded-lg">
-              <ProjectCard project={project} key={project.name} />
-            </div>
+            <motion.div
+              variants={fadInUp}
+              className="col-span-12 sm:col-span-6 lg:col-span-4 p-2 bg-gray-200 dark:bg-dark-200 rounded-lg"
+              key={project.name}
+            >
+              <ProjectCard project={project} />
+            </motion.div>
           );
         })}
-      </div>
+      </motion.div>
     </div>
   );
 }
